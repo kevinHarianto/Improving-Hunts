@@ -1,0 +1,48 @@
+/* --- BLOWFISH CUSTOM BRANDING TYPE OVERRIDE --- */
+
+/* 1. Scale and Bold the Primary Header Title */
+.nav-link[href="/"], 
+header.navbar a[href="/"] span,
+header.navbar .text-xl {
+    font-size: 1.75rem !important; /* Forces md:text-2xl equivalent */
+    font-weight: 900 !important;   /* Forces font-black */
+    letter-spacing: -0.05em !important; /* tracking-tight */
+}
+
+@media (min-width: 768px) {
+    .nav-link[href="/"], 
+    header.navbar a[href="/"] span,
+    header.navbar .text-xl {
+        font-size: 2.125rem !important; /* Forces text-3xl on desktop screens */
+    }
+}
+
+/* 2. Dynamically Inject "by Kevin Harianto" via CSS Pseudo-element */
+.nav-link[href="/"]::after,
+header.navbar a[href="/"] span::after,
+header.navbar .text-xl::after {
+    content: " by Kevin Harianto";
+    font-size: 0.875rem !important;  /* text-sm */
+    font-weight: 400 !important;   /* font-normal */
+    color: #a3a3a3 !important;      /* Muted light gray */
+    letter-spacing: normal !important;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+/* Adapt the suffix for system dark mode configurations */
+@media (prefers-color-scheme: dark) {
+    .nav-link[href="/"]::after,
+    header.navbar a[href="/"] span::after {
+        color: #737373 !important; /* Muted dark gray */
+    }
+}
+
+/* Make top-right navigation menu items bold */
+header .main-menu nav a,
+header .main-menu a,
+.nav-link {
+    font-weight: 700 !important; /* Change to 800 or 900 if you want it extra bold */
+}
