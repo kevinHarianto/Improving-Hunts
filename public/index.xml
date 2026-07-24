@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Improving Hunts</title>
-    <link>http://localhost:1313/</link>
+    <link>https://ImprovingHunts.com/</link>
     <description>Recent content on Improving Hunts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Kevin Harianto</copyright>
-    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ImprovingHunts.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>How I&#39;m Developing a Meaningful DFIR Software Project From Scratch (And How You Can Too) Part 1</title>
-      <link>http://localhost:1313/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-1/</link>
+      <link>https://ImprovingHunts.com/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-1/</link>
       <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-1/</guid>
+      <guid>https://ImprovingHunts.com/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-1/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>How I&#39;m Developing a Meaningful DFIR Software Project From Scratch (And How You Can Too) Part 2</title>
-      <link>http://localhost:1313/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-2/</link>
+      <link>https://ImprovingHunts.com/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-2/</link>
       <pubDate>Tue, 21 Jul 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-2/</guid>
+      <guid>https://ImprovingHunts.com/posts/how-im-developing-a-meaningful-dfir-software-project-from-scratch-and-how-you-can-too-part-2/</guid>
       <description></description>
       
     </item>
