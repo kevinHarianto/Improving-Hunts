@@ -24,22 +24,7 @@ enableEmoji = true
 
 [imaging]
   anchor = 'Center'
-# -- Asset & Static Mounts --
-[module]
-  # 1. Restore the default static directory mount (copies static/ to output root)
-  [[module.mounts]]
-    source = "static"
-    target = "static"
 
-  # 2. Restore default assets mount
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-
-  # 3. Mount static/images into virtual assets so Blowfish can pre-render them
-  [[module.mounts]]
-    source = "static/images"
-    target = "assets/images"
 [taxonomies]
   tag = "tags"
   category = "categories"
