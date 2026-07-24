@@ -28,15 +28,17 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3.2.1
-        with:
-          hugo-version: 'latest'
-          extended: true
+      # Dynamically fetch and install the latest extended Hugo release without hardcoding version numbers
+      - name: Install Latest Hugo Extended
+        run: |
+          HUGO_LATEST_TAG=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+          echo "Installing Hugo Extended version v${HUGO_LATEST_TAG}..."
+          wget -O ${{ runner.temp }}/hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_LATEST_TAG}/hugo_extended_${HUGO_LATEST_TAG}_linux-amd64.deb"
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@v5
 
       - name: Build with Hugo
         env:
