@@ -3,7 +3,7 @@
 # https://blowfish.page/docs/getting-started/
 
 theme = "blowfish"
-baseURL = "https://ImprovingHunts.com/"
+baseURL = "https://kevinHarianto.github.io/Improving-Hunts"
 title = "Improving Hunts"
 defaultContentLanguage = "en"
 
