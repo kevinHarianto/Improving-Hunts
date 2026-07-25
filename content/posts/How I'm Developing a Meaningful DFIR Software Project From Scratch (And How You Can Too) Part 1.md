@@ -2,7 +2,7 @@
 title: How I'm Developing a Meaningful DFIR Software Project From Scratch (And How You Can Too) Part 1
 date: 2026-07-21
 draft: false
-description: Your DFIR project development woes end now. Begin your journey with me and show your value to others in the community, testing.
+description: Your DFIR project development woes end now. Begin your journey with me and show your value to others in the community.
 thumbnail: "/images/Pasted%20image%2020260721031637.png"
 ---
 # Key Takeaways
@@ -17,7 +17,7 @@ A lot of people struggle to come up with a meaningful software project idea; jus
 
 However, the ultimate way is to first identify the underlying issues that your development skills can help with.
 
-In this article, I will be sharing an example of how you could come up with that meaningful software project, all the way to development, where in this part, I will be covering the actual creation of the idea. The thing that stumps countless people.
+In this article, I will be sharing an example of how you could come up with that meaningful software project, all the way to development, where in this part, I will be covering the actual creation of the idea. The thing that stumps countless people. (testing text)
 
 # Why Develop Your Own Project Idea Through Personal Experience?
 
