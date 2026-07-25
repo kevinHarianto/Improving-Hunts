@@ -2,7 +2,7 @@
 title: How I'm Developing a Meaningful DFIR Software Project From Scratch (And How You Can Too) Part 1
 date: 2026-07-21
 draft: false
-description: Your DFIR project development woes end now. Begin your journey with me and show your value to others in the community. YOLO
+description: Your DFIR project development woes end now. Begin your journey with me and show your value to others in the community, testing.
 thumbnail: "/images/Pasted%20image%2020260721031637.png"
 ---
 # Key Takeaways
