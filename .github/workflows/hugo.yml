@@ -3,10 +3,20 @@ name: Deploy Hugo site to Pages
 on:
   push:
     branches: ["master"]
+    paths:
+      - "content/**"          # Markdown content
+      - "layouts/**"          # Templates
+      - "assets/**"           # CSS/JS/images
+      - "static/**"           # Static files
+      - "config.*"            # Hugo config
+      - "hugo.toml"
+      - "hugo.yaml"
+      - "hugo.json"
+      - ".github/workflows/hugo.yml"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write   # needed to push generated HTML back to the repo
   pages: write
   id-token: write
 
@@ -27,8 +37,13 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Official, reliable Hugo Extended installer
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
@@ -39,12 +54,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      # Purge local public directory if checked into git to force a full re-render from markdown
       - name: Wipe tracked public directory
-        run: |
-          rm -rf public/
+        run: rm -rf public/
 
-      # Build Hugo site with clean flags
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
@@ -55,6 +67,20 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      # ──────────────────────────────────────────────────────────────
+      # Commit the regenerated HTML back to the repo so the markdown
+      # and HTML stay in sync. [skip ci] prevents an infinite loop.
+      # ──────────────────────────────────────────────────────────────
+      - name: Commit generated HTML
+        run: |
+          git add public/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: regenerate HTML from markdown [skip ci]"
+            git push
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
