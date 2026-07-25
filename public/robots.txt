@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ImprovingHunts.com/sitemap.xml
+Sitemap: https://kevinharianto.github.io/Improving-Hunts/sitemap.xml
