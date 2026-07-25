@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # needed to push generated HTML back to the repo
+  contents: read   # safe default
   pages: write
   id-token: write
 
@@ -37,12 +37,6 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -54,9 +48,6 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Wipe tracked public directory
-        run: rm -rf public/
-
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
@@ -67,20 +58,6 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-
-      # ──────────────────────────────────────────────────────────────
-      # Commit the regenerated HTML back to the repo so the markdown
-      # and HTML stay in sync. [skip ci] prevents an infinite loop.
-      # ──────────────────────────────────────────────────────────────
-      - name: Commit generated HTML
-        run: |
-          git add public/
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "chore: regenerate HTML from markdown [skip ci]"
-            git push
-          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
