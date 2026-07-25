@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 defaults:
   run:
@@ -28,7 +28,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # Dynamically fetch and install the latest extended Hugo release without hardcoding version numbers
+      # Dynamically fetch and install the latest extended Hugo release
       - name: Install Latest Hugo Extended
         run: |
           HUGO_LATEST_TAG=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
@@ -40,12 +40,24 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      # Clear local Hugo cache dir to force processing all static & markdown assets from scratch
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hugo_cache
+            resources
+          key: ${{ runner.os }}-hugo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
           hugo \
+            --cleanDestinationDir \
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
