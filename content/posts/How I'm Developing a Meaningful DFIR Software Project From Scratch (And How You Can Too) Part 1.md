@@ -22,7 +22,7 @@ In this article, I will be sharing an example of how you could come up with that
 # Why Develop Your Own Project Idea Through Personal Experience?
 
 [Source](https://www.pmi.org/learning/library/impact-project-benefit-methodology-accountability-6446)
-![Image Description](/images/Pasted%20image%2020260712054454.png)
+![Image Description](/images/Pasted%20image%2020260712055620.png)
 
 **Demonstrating Your Potential Impact:** By highlighting your abilities to identify possible improvements in the DFIR Workflow (or your own/personal life), it flags to potential recruiters how you are able to apply your thinking to improve their processes as well.
 
